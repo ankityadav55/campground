@@ -13,8 +13,7 @@ A Node.js Project from Udemy Web Development course-By Colt Steele. It is an Nod
 
 # Live Demo <img src="https://cdn-icons-png.flaticon.com/512/1020/1020535.png" width="70px">
   Click for Live Demo 1 - [yelp-camp](https://yelpcamp-base.herokuapp.com/).
-  <br/>
-  Click for Live Demo 2 - [yelp-camp](https://yelp-campbase.herokuapp.com/).
+  
   
   
   ---
