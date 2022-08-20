@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YelpCamp</title>
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/stylesheets/home.css" />
+
+</head>
+
+<body class="d-flex text-center text-white bg-dark">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+
+      <h3 class="float-md-left mb-0 nav-brand-title mtn5">
+        <span id="nav-logo"></span>
+        YelpCamp
+      </h3>
+
+
+      <nav class="nav nav-masthead justify-content-center float-md-right">
+        <% if(!currentUser) { %>
+          <a class="nav-link" href="/login">Login</a>
+          <a class="nav-link" href="/register">Register</a>
+          <% } else { %>
+            <a class="nav-link" href="/logout">Logout</a>
+            <% } %>
+      </nav>
+
+    </header>
+
+
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+
+        <h1 class="display-4">Yelp Camp </h1>
+        <h4>Welcome to YelpCamp!</h4>
+        <p>Jump right in and explore our many campgrounds. Feel free to share
+          <br />
+          some of your own and comment on others!
+        </p>
+      </div>
+      <a href="/campgrounds" role="button" class="btn home-btn-view">View Campgrounds</a>
+    </div>
+
+
+
+
+    <footer class="mt-auto text-white-50">
+      <p>&copy; 2021</p>
+      
+    </footer>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+    integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<% layout('layout/boilerplate') %>
+  <link rel="stylesheet" href="/stylesheets/searchbar.css">
+
+
+  <div id="navbar-search">
+    <!-- <img class="navbar-searchimg" src="../img/bgimg.jpg" alt=""> -->
+
+
+
+    <div class="container-xl">
+
+
+      <div class="container">
+
+
+        <div id="containerAnimate">
+          <h4 class="display-4" style="color: white;">It's time for new</h4>
+          <div id="flip" class="display-3 fw-normal">
+            <div>
+              <div>Thrills</div>
+            </div>
+            <div>
+              <div>Experiences</div>
+            </div>
+            <div>
+              <div>Adventures</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- </div> -->
+
+
+      <div class="row d-flex justify-content-center px-3">
+
+
+        <div class="col-md-10 d-inline-block searchwrapper">
+
+          <form action="/campgrounds/search" class="input-group" id="search-form" method="post" autocomplete="off">
+            <input name="search" class="searchinput" type="text" autocomplete="off" placeholder="Type to search..."
+              value="<%= search %>">
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-link border-0 btn-floating">
+                <i class="fas fa-search" style="font-size: 25px;"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+
+
+      </div>
+
+
+
+
+    </div>
+
+    <img onclick="scrolldown()" class="scolldownarrow" src="./img/arrow3.gif" alt="">
+  </div>
+
+
+  <!-- -----------------------------------   search nav bar end --------------------------------------------------------------------------- -->
+
+
+  <!-- campground seaech bar end  -->
+
+  <!-- //  starting dispalying campground  -->
+  <!-- conatiner start  -->
+  <div class="container">
+    <div class="row ">
+
+
+      <% if(!campgrounds || campgrounds.length==0){%>
+        <div class="col-md-6  mx-auto mt-4 ">
+          <div class="alert alert-info shadow-sm text-center" role="alert">
+            <h4 class="alert-heading text-center">
+              No Campground Found
+            </h4>
+          </div>
+        </div>
+        <%} else {%>
+          <p class="d-flex justify-content-center align-items-center gap-3 introtocamp">
+            <img src="../img/camping.png" alt="" width="100px" class="hide-sm">
+            <span class="campstarttitle text-justify display-6 mb-4 fw-normal" style="color: #333;">Camps Visited by
+              People </span>
+            <img src="../img/camping2.png" alt="" width="100px" class="hide-sm">
+
+          </p>
+          <%} %>
+
+
+
+            <% for(let campground of campgrounds){ %>
+
+              <div class="col-md-12  col-lg-6 col-sm-12 mx-auto removepaddingforsmall mb-5">
+                <div class="card mb-3 shadow p-2 pannelcardcss">
+                  <% if(campground.images.length>0) {%>
+                    <a href="/campgrounds/<%=campground._id%>" class="parent-camp-image">
+                      <img class="card-img-top camp-image" src="<%=campground.images[0].url%>" alt="">
+                    </a>
+                    <% } %>
+
+
+
+
+                      <div class="card-body">
+
+                        <a href="/campgrounds/<%=campground._id%>">
+                          <h5 class="card-title text-capitalize">
+                            <%=campground.title %>
+                              <small class="text-muted float-end">$<%=campground.price%> </small>
+                          </h5>
+                        </a>
+
+                        <p class="card-subtitle">
+                          <a href="/campgrounds/<%=campground._id%>">
+                            <small class="text-muted">
+                              <%=campground.location %>
+                            </small>
+                          </a>
+                        </p>
+                        <p class="text-start">
+                          <small>
+                            <% for(let i=0; i<parseInt(campground.campRating); i++){ %>
+                              <i class="fas fa-star text-warning"></i>
+                              <%}%>
+                                <%if(Math.ceil(campground.campRating) - Math.floor(campground.campRating)==1){%>
+                                  <i class="fas fa-star-half text-warning" aria-hidden="true"></i>
+                                  <%}%>
+
+                                    <% for(let i=0; i< parseInt(5-campground.campRating) ;i++){ %>
+                                      <i class="fas fa-star text-muted"></i>
+                                      <%}%>
+                                        <%=campground.reviews.length%> reviews
+                          </small>
+                        </p>
+
+                        <div class="card-text description_frontcard">
+
+                          <%= (campground.description).trim() %>
+
+                        </div>
+
+                      </div>
+                </div>
+              </div>
+
+
+              <% } %>
+    </div>
+  </div>
+
+  <script src="./javascripts/setBg.js"></script>

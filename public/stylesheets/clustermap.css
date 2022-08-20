@@ -1,0 +1,39 @@
+#cluster-map {
+	height: 100%;
+	width: 100%;
+	border-radius: 15px;
+	
+}
+.content{
+	margin-top: 70px !important;
+}
+
+
+.mapboxcontainer {
+	height: 75vh;
+	border: 2px solid rgba(45, 16, 16, 0.184);
+	border-radius: 15px;
+	box-sizing: border-box;
+	margin-top: 15px;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 40px;
+}
+
+.mapboxcontainerwrapper {
+	width: 100% !important;
+	height: 70vh !important;
+}
+@media(max-width:800px){
+	.mapboxcontainer {
+		height: 85vh;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	.mapboxcontainerwrapper {
+		width: 100% !important;
+		height: 80vh !important;
+	}
+}
